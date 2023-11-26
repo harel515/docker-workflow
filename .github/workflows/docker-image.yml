@@ -1,0 +1,19 @@
+name: My name image
+
+on:
+  push:
+    branches: [ "main" ]
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build -t my-name .
+    - name: run docker image my-name
+      run: docker run --rm my-name
